@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MURI TECH | Produtos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="marca">
+      <span class="marca-simbolo">M</span>
+      <div>
+        <h1>MURI TECH</h1>
+        <p>Tecnologia que eleva seu jogo.</p>
+      </div>
+    </div>
+    <nav>
+      <button id="link-lista" class="nav-link ativo" type="button">Produtos</button>
+      <button id="link-cadastro" class="nav-link" type="button">Cadastrar produto</button>
+      <button id="botao-tema" class="nav-link botao-tema" type="button">
+        🌙 Modo escuro
+      </button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="tela-lista">
+      <div class="titulo-area">
+        <div>
+          <p class="subtitulo">LOJA GAMER E TECNOLOGIA</p>
+          <h2>Produtos cadastrados</h2>
+          <p class="texto-ajuda">Confira os produtos disponíveis no catálogo.</p>
+        </div>
+        <button id="novo-produto" class="botao principal" type="button">+ Cadastrar produto</button>
+      </div>
+
+      <div class="cartao tabela-cartao">
+        <div class="tabela-responsiva">
+          <table>
+            <thead>
+              <tr>
+                <th>Código</th>
+                <th>Produto</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-tabela"></tbody>
+          </table>
+        </div>
+        <p id="mensagem-vazia" class="vazio">Nenhum produto cadastrado ainda.</p>
+      </div>
+    </section>
+
+    <section id="tela-formulario" class="escondido">
+      <div class="titulo-area">
+        <div>
+          <p class="subtitulo">CATÁLOGO MURI TECH</p>
+          <h2 id="titulo-formulario">Cadastro de produto</h2>
+          <p class="texto-ajuda">Preencha os campos para adicionar um produto.</p>
+        </div>
+      </div>
+
+      <form id="form-produto" class="cartao formulario">
+        <div class="campos">
+          <div class="campo">
+            <label for="codigo">Código</label>
+            <input id="codigo" type="text" placeholder="Gerado automaticamente" readonly>
+          </div>
+          <div class="campo">
+            <label for="nome">Produto</label>
+            <input id="nome" type="text" placeholder="Ex.: Teclado mecânico" required>
+          </div>
+          <div class="campo campo-largo">
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" rows="3" placeholder="Descreva as características do produto" required></textarea>
+          </div>
+          <div class="campo">
+            <label for="preco">Preço (R$)</label>
+            <input id="preco" type="number" min="0.01" step="0.01" placeholder="0,00" required>
+          </div>
+          <div class="campo">
+            <label for="foto">Nome da imagem</label>
+            <input id="foto" type="text" maxlength="10" placeholder="Ex.: mouse" required>
+            <small>Escolha uma imagem abaixo ou digite o nome dela.</small>
+            <div id="galeria-imagens" class="galeria-imagens">
+              <button class="opcao-imagem" type="button" data-imagem="mouse"><img src="imagens/mouse.png" alt="Mouse"><span>Mouse</span></button>
+              <button class="opcao-imagem" type="button" data-imagem="teclado"><img src="imagens/teclado.png" alt="Teclado"><span>Teclado</span></button>
+              <button class="opcao-imagem" type="button" data-imagem="headset"><img src="imagens/headset.png" alt="Headset"><span>Headset</span></button>
+              <button class="opcao-imagem" type="button" data-imagem="PC"><img src="imagens/PC.png" alt="Computador"><span>Computador</span></button>
+              <button class="opcao-imagem" type="button" data-imagem="monitor"><img src="imagens/monitor.png" alt="Monitor"><span>Monitor</span></button>
+              <button class="opcao-imagem" type="button" data-imagem="controle"><img src="imagens/controle.png" alt="Controle"><span>Controle</span></button>
+              <button class="opcao-imagem" type="button" data-imagem="cadeira"><img src="imagens/cadeira.png" alt="Cadeira"><span>Cadeira</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="preview-area">
+          <p>Pré-visualização da imagem</p>
+          <div class="imagem-preview">
+            <img id="preview" src="" alt="Pré-visualização do produto">
+            <span id="sem-imagem">A imagem aparecerá aqui</span>
+          </div>
+        </div>
+
+        <div class="acoes-formulario">
+          <button class="botao principal" id="botao-salvar" type="submit">Cadastrar produto</button>
+          <button class="botao secundario" id="cancelar-formulario" type="button">Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="tela-exclusao" class="escondido">
+      <div class="titulo-area">
+        <div>
+          <p class="subtitulo">CATÁLOGO MURI TECH</p>
+          <h2>Excluir produto</h2>
+          <p class="texto-ajuda">Confira os dados antes de confirmar a exclusão.</p>
+        </div>
+      </div>
+      <div class="cartao confirmacao">
+        <div id="detalhes-exclusao"></div>
+        <p class="aviso">Tem certeza de que deseja excluir este produto?</p>
+        <div class="acoes-formulario">
+          <button id="confirmar-exclusao" class="botao perigo" type="button">Sim, excluir</button>
+          <button id="cancelar-exclusao" class="botao secundario" type="button">Cancelar</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 MURI TECH — Projeto acadêmico de cadastro de produtos.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
